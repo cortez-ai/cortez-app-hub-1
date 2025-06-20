@@ -1,29 +1,30 @@
 import React, { useState, useMemo } from "react";
-import { projects, sortProjects, Project } from "@/assets/projects";
+import { projects } from "@/assets/projects";
 import Header from "@/components/Header";
 import ProjectCard from "@/components/ProjectCard";
 
 const Index: React.FC = () => {
-  const [currentSort, setCurrentSort] = useState<"name" | "year" | "category">(
-    "year",
-  );
+  const [isAscending, setIsAscending] = useState(true);
 
   const sortedProjects = useMemo(() => {
-    return sortProjects(projects, currentSort);
-  }, [currentSort]);
+    return [...projects].sort((a, b) => {
+      const comparison = a.name.localeCompare(b.name);
+      return isAscending ? comparison : -comparison;
+    });
+  }, [isAscending]);
 
-  const handleSortChange = (sortBy: "name" | "year" | "category") => {
-    setCurrentSort(sortBy);
+  const handleSortToggle = () => {
+    setIsAscending(!isAscending);
   };
 
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <Header onSortChange={handleSortChange} currentSort={currentSort} />
+        <Header onSortToggle={handleSortToggle} isAscending={isAscending} />
 
         <main className="w-full max-w-4xl mx-auto">
           {/* Projects Grid */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             {sortedProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
