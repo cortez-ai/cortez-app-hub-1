@@ -10,10 +10,13 @@ const Header: React.FC<HeaderProps> = ({ onSortToggle, isAscending }) => {
   return (
     <header className="w-full max-w-4xl mx-auto px-6 py-8 animate-fade-in">
       <div className="text-center mb-8">
-        <h1 className="text-2xl md:text-3xl font-medium text-foreground mb-4">
+        <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
+          My app hub
+        </h1>
+        <p className="text-lg md:text-xl text-muted-foreground">
           Below you can browse some useful and some not so useful apps and tools
           I made
-        </h1>
+        </p>
       </div>
 
       <div className="flex justify-center">

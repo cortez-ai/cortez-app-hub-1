@@ -5,10 +5,10 @@
 @layer base {
   :root {
     /* Dark theme base colors - pure black/gray */
-    --background: 0 0% 8%;
+    --background: 0 0% 6%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 12%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 95%;
 
     --popover: 0 0% 12%;
