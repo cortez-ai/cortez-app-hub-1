@@ -1,5 +1,5 @@
-import React from "react";
-import { GitBranch } from "lucide-react";
+import React, { useState } from "react";
+import { GitBranch, ChevronDown, ChevronUp } from "lucide-react";
 import { Project } from "@/assets/projects";
 import ImageCarousel from "./ImageCarousel";
 
@@ -9,6 +9,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const handleCardClick = () => {
     if (project.liveUrl) {
       window.open(project.liveUrl, "_blank");
@@ -22,13 +24,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     }
   };
 
+  const handleExpandClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <article
-      className="portfolio-card animate-slide-up group cursor-pointer h-32"
+      className={`portfolio-card animate-slide-up group cursor-pointer transition-all duration-300 ${
+        isExpanded ? "h-auto" : "h-32"
+      }`}
       style={{ animationDelay: `${index * 100}ms` }}
       onClick={handleCardClick}
     >
-      <div className="flex h-full">
+      <div className="flex h-32">
         {/* Image Section */}
         <div className="w-48 flex-shrink-0">
           <ImageCarousel images={project.images} projectName={project.name} />
@@ -45,9 +54,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </p>
           </div>
 
-          {/* Source Code Button */}
-          {project.githubUrl && (
-            <div className="flex justify-end mt-2">
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-2">
+            {/* Source Code Button */}
+            {project.githubUrl && (
               <button
                 onClick={handleSourceClick}
                 className="p-2 text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -55,10 +65,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               >
                 <GitBranch size={16} />
               </button>
-            </div>
-          )}
+            )}
+
+            {/* Expand/Collapse Button */}
+            <button
+              onClick={handleExpandClick}
+              className="p-2 text-muted-foreground hover:text-primary transition-colors duration-200"
+              aria-label={isExpanded ? "Collapse details" : "Expand details"}
+            >
+              {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Expanded Content */}
+      {isExpanded && (
+        <div className="border-t border-border p-4 animate-scale-in">
+          <p className="text-foreground leading-relaxed">
+            {project.detailedDescription}
+          </p>
+        </div>
+      )}
     </article>
   );
 };

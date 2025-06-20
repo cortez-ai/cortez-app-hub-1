@@ -33,8 +33,7 @@ const Index: React.FC = () => {
           {/* Footer */}
           <footer className="mt-16 pt-8 border-t border-border text-center">
             <p className="text-muted-foreground text-sm">
-              Built with React, TypeScript, and a lot of{" "}
-              <span className="text-primary">caffeine</span>
+              Built with React and TypeScript
             </p>
           </footer>
         </main>
