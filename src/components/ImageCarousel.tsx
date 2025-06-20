@@ -68,7 +68,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
       {/* Navigation arrows - smaller for compact layout */}
       <button
-        onClick={prevImage}
+        onClick={(e) => {
+          e.stopPropagation();
+          prevImage();
+        }}
         className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200"
         aria-label="Previous image"
       >
@@ -76,7 +79,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       </button>
 
       <button
-        onClick={nextImage}
+        onClick={(e) => {
+          e.stopPropagation();
+          nextImage();
+        }}
         className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-200"
         aria-label="Next image"
       >
@@ -88,7 +94,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         {images.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setCurrentIndex(index);
+            }}
             className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
               currentIndex === index
                 ? "bg-primary"

@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center justify-end gap-1 mt-2">
             {/* Source Code Button */}
             {project.githubUrl && (
               <button
