@@ -21,7 +21,7 @@ export const projects: Project[] = [
     detailedDescription:
       "Built with React, TypeScript, and Firebase, this task manager includes features like drag-and-drop kanban boards, real-time updates, team collaboration, file attachments, and advanced filtering. The app supports multiple project workspaces and includes analytics dashboards for productivity tracking.",
     images: [
-      "src/assets/task-manager-1.jpg",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
       "src/assets/task-manager-2.jpg",
       "src/assets/task-manager-3.jpg",
     ],
