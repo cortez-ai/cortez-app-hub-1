@@ -60,7 +60,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src =
-                "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA3IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMT7gOS4yNCAxNC43NiA3IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
+                "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA3IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMTcgOS4yNCAxNC43NiA3IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
             }}
           />
         ))}
