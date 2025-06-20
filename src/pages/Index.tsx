@@ -1,40 +1,42 @@
-const Index = () => {
+import React, { useState, useMemo } from "react";
+import { projects, sortProjects, Project } from "@/assets/projects";
+import Header from "@/components/Header";
+import ProjectCard from "@/components/ProjectCard";
+
+const Index: React.FC = () => {
+  const [currentSort, setCurrentSort] = useState<"name" | "year" | "category">(
+    "year",
+  );
+
+  const sortedProjects = useMemo(() => {
+    return sortProjects(projects, currentSort);
+  }, [currentSort]);
+
+  const handleSortChange = (sortBy: "name" | "year" | "category") => {
+    setCurrentSort(sortBy);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8">
+        <Header onSortChange={handleSortChange} currentSort={currentSort} />
+
+        <main className="w-full max-w-4xl mx-auto">
+          {/* Projects Grid */}
+          <div className="space-y-8">
+            {sortedProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
+
+          {/* Footer */}
+          <footer className="mt-16 pt-8 border-t border-border text-center">
+            <p className="text-muted-foreground text-sm">
+              Built with React, TypeScript, and a lot of{" "}
+              <span className="text-primary">caffeine</span>
+            </p>
+          </footer>
+        </main>
       </div>
     </div>
   );
