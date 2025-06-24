@@ -35,7 +35,9 @@ const Index: React.FC = () => {
             <p className="text-muted-foreground text-sm">
               Built with React and TypeScript by{" "}
               <span className="underline">
-                <a href="https://github.com/vicortez">Victor Cortez</a>
+                <a href="https://github.com/vicortez" rel="noopener">
+                  Victor Cortez
+                </a>
               </span>
             </p>
           </footer>
