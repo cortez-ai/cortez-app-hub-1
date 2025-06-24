@@ -1,65 +1,58 @@
 export interface Project {
-  id: string;
   name: string;
   description: string;
-  detailedDescription: string;
+  detailedDescription?: string;
   images: string[];
-  technologies: string[];
+  technologies?: string[];
   liveUrl?: string;
-  githubUrl?: string;
+  gitUrl?: string;
   category: "useful" | "experimental" | "fun";
-  featured: boolean;
-  year: number;
+  featured?: boolean;
+  year?: number;
 }
 
 export const projects: Project[] = [
   {
-    id: "task-manager",
-    name: "Advanced Task Manager",
-    description:
-      "A sophisticated task management application with real-time collaboration features.",
+    name: "Easy Secret santa",
+    description: "Intuitive no-account secret santa app",
     detailedDescription:
-      "Built with React, TypeScript, and Firebase, this task manager includes features like drag-and-drop kanban boards, real-time updates, team collaboration, file attachments, and advanced filtering. The app supports multiple project workspaces and includes analytics dashboards for productivity tracking.",
+      "A simple and intuitive app to organize your Secret Santa gift exchange, replacing paper-and-pen. No accounts or emails required - just add participants and draw names instantly. After the draw, the app generates unique secret links for each participant, ensuring only they know who they picked. Perfect for families, friends, coworkers, or any group looking for a hassle-free way to organize their gift exchange. \n Made with TODO™",
     images: [
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop",
+      "src/assets/amigosecretofacil.cortez.top_sorteio.png",
       "src/assets/task-manager-2.jpg",
-      "src/assets/task-manager-3.jpg",
     ],
     technologies: [
-      "React",
-      "TypeScript",
-      "Firebase",
-      "Tailwind CSS",
-      "Framer Motion",
+      // "React",
+      // "TypeScript",
+      // "Firebase",
+      // "Tailwind CSS",
+      // "Framer Motion",
     ],
-    liveUrl: "https://taskmanager.example.com",
-    githubUrl: "https://github.com/username/task-manager",
+    liveUrl: "https://amigosecretofacil.cortez.top",
+    gitUrl: "https://github.com/vicortez/amigo-secreto-facil",
     category: "useful",
     featured: true,
-    year: 2024,
   },
   {
-    id: "weather-app",
-    name: "Minimalist Weather Dashboard",
-    description:
-      "Clean and intuitive weather application with beautiful animations.",
+    name: "Spending tracker",
+    description: "TODO",
     detailedDescription:
-      "A weather app focused on clean design and smooth user experience. Features include 7-day forecasts, weather maps, location-based detection, and beautiful animated weather icons. The app adapts its theme based on current weather conditions.",
-    images: ["src/assets/weather-1.jpg", "src/assets/weather-2.jpg"],
-    technologies: [
-      "React",
-      "OpenWeather API",
-      "CSS Animations",
-      "Geolocation API",
-    ],
-    liveUrl: "https://weather.example.com",
-    githubUrl: "https://github.com/username/weather-app",
+      "Blablabla, there is also a web version: https://spendingtracker.cortez.top",
+    images: ["src/assets/spending_tracker.webp"],
+    // technologies: [
+    //   "React",
+    //   "OpenWeather API",
+    //   "CSS Animations",
+    //   "Geolocation API",
+    // ],
+    liveUrl:
+      "https://play.google.com/store/apps/details?id=top.cortez.spending_tracker&hl=en",
+    // gitUrl: "https://github.com/username/weather-app",
     category: "useful",
     featured: true,
     year: 2024,
   },
   {
-    id: "color-palette-generator",
     name: "AI Color Palette Generator",
     description:
       "Generate beautiful color palettes using machine learning algorithms.",
@@ -68,52 +61,7 @@ export const projects: Project[] = [
     images: ["src/assets/color-palette-1.jpg"],
     technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
     liveUrl: "https://colorgen.example.com",
-    githubUrl: "https://github.com/username/color-generator",
-    category: "experimental",
-    featured: false,
-    year: 2023,
-  },
-  {
-    id: "pixel-art-editor",
-    name: "Browser Pixel Art Editor",
-    description:
-      "Nostalgic pixel art creation tool built entirely in the browser.",
-    detailedDescription:
-      "A fun project that brings back the joy of pixel art creation. Features include multiple brush sizes, color palettes, layers, animation frames, and export to various formats. Built with HTML5 Canvas and includes undo/redo functionality.",
-    images: ["src/assets/pixel-art-1.jpg", "src/assets/pixel-art-2.jpg"],
-    technologies: ["HTML5 Canvas", "JavaScript", "CSS Grid", "Local Storage"],
-    liveUrl: "https://pixelart.example.com",
-    githubUrl: "https://github.com/username/pixel-art-editor",
-    category: "fun",
-    featured: false,
-    year: 2023,
-  },
-  {
-    id: "code-snippet-manager",
-    name: "Smart Code Snippet Manager",
-    description:
-      "Organize and search through your code snippets with AI-powered tagging.",
-    detailedDescription:
-      "A productivity tool for developers to save, organize, and quickly find code snippets. Features include syntax highlighting for 50+ languages, AI-powered automatic tagging, team sharing, and integration with popular code editors through browser extensions.",
-    images: ["src/assets/snippet-manager-1.jpg"],
-    technologies: ["Node.js", "React", "MongoDB", "Elasticsearch", "Prism.js"],
-    liveUrl: "https://snippets.example.com",
-    githubUrl: "https://github.com/username/snippet-manager",
-    category: "useful",
-    featured: true,
-    year: 2024,
-  },
-  {
-    id: "random-quote-machine",
-    name: "Philosophical Quote Machine",
-    description:
-      "Sometimes useful, sometimes not - generates random philosophical quotes.",
-    detailedDescription:
-      "A simple yet oddly addictive quote generator that pulls from a curated collection of philosophical quotes. Features a minimalist design, tweet functionality, and a save-to-favorites option. Built as a fun exercise in API integration.",
-    images: ["src/assets/quote-machine-1.jpg"],
-    technologies: ["React", "Quote API", "Twitter API", "CSS Animations"],
-    liveUrl: "https://quotes.example.com",
-    githubUrl: "https://github.com/username/quote-machine",
+    gitUrl: "https://github.com/username/color-generator",
     category: "experimental",
     featured: false,
     year: 2023,

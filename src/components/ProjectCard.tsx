@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { GitBranch, ChevronDown, ChevronUp } from "lucide-react";
 import { Project } from "@/assets/projects";
+import { ChevronDown, ChevronUp, GitBranch } from "lucide-react";
+import React, { useState } from "react";
 import ImageCarousel from "./ImageCarousel";
 
 interface ProjectCardProps {
@@ -19,8 +19,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   const handleSourceClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (project.githubUrl) {
-      window.open(project.githubUrl, "_blank");
+    if (project.gitUrl) {
+      window.open(project.gitUrl, "_blank");
     }
   };
 
@@ -32,14 +32,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <article
       className={`portfolio-card animate-slide-up group cursor-pointer transition-all duration-300 ${
-        isExpanded ? "h-auto" : "h-32"
+        isExpanded ? "h-auto" : "h-56"
       }`}
       style={{ animationDelay: `${index * 100}ms` }}
       onClick={handleCardClick}
     >
-      <div className="flex h-32">
+      <div className="flex h-56">
         {/* Image Section */}
-        <div className="w-48 flex-shrink-0">
+        <div className="w-80 flex-shrink-0">
           <ImageCarousel images={project.images} projectName={project.name} />
         </div>
 
@@ -57,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           {/* Controls */}
           <div className="flex items-center justify-end gap-1 mt-2">
             {/* Source Code Button */}
-            {project.githubUrl && (
+            {project.gitUrl && (
               <button
                 onClick={handleSourceClick}
                 className="p-2 text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="border-t border-border p-4 animate-scale-in">
+        <div className="border-t border-border p-4 animate-fade-in">
           <p className="text-foreground leading-relaxed">
             {project.detailedDescription}
           </p>
