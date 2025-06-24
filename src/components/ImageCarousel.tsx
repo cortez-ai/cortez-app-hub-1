@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ImageOptions } from "@/assets/projects";
 
 interface ImageCarouselProps {
   images: string[];
   projectName: string;
+  imageOptions?: ImageOptions;
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
