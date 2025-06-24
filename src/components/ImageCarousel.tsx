@@ -1,16 +1,86 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ImageOptions } from "@/assets/projects";
 
 interface ImageCarouselProps {
   images: string[];
   projectName: string;
+  imageOptions?: ImageOptions;
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   projectName,
+  imageOptions = {},
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Helper function to convert imageOptions to CSS classes
+  const getImageClasses = () => {
+    const { fit = "cover", position = "center" } = imageOptions;
+
+    let classes =
+      "w-full h-full flex-shrink-0 transition-transform duration-300 hover:scale-105";
+
+    // Object-fit classes
+    switch (fit) {
+      case "contain":
+        classes += " object-contain";
+        break;
+      case "fill":
+        classes += " object-fill";
+        break;
+      case "scale-down":
+        classes += " object-scale-down";
+        break;
+      case "none":
+        classes += " object-none";
+        break;
+      default:
+        classes += " object-cover";
+    }
+
+    // Object-position classes
+    switch (position) {
+      case "top":
+        classes += " object-top";
+        break;
+      case "bottom":
+        classes += " object-bottom";
+        break;
+      case "left":
+        classes += " object-left";
+        break;
+      case "right":
+        classes += " object-right";
+        break;
+      case "top-left":
+        classes += " object-left-top";
+        break;
+      case "top-right":
+        classes += " object-right-top";
+        break;
+      case "bottom-left":
+        classes += " object-left-bottom";
+        break;
+      case "bottom-right":
+        classes += " object-right-bottom";
+        break;
+      default:
+        classes += " object-center";
+    }
+
+    return classes;
+  };
+
+  // Helper function to get container styles
+  const getContainerStyles = () => {
+    const { aspectRatio } = imageOptions;
+    if (aspectRatio && aspectRatio !== "auto") {
+      return { aspectRatio };
+    }
+    return {};
+  };
 
   if (images.length === 0) {
     return (
@@ -22,15 +92,18 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   if (images.length === 1) {
     return (
-      <div className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted">
+      <div
+        className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted"
+        style={getContainerStyles()}
+      >
         <img
           src={images[0]}
           alt={`${projectName} screenshot`}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className={getImageClasses()}
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.src =
-              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA3IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMTcgOS4yNCAxNC43NiA3IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
+              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA7IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMTcgOS4yNCAxNC43NiA3IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
           }}
         />
       </div>
@@ -46,7 +119,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted group">
+    <div
+      className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted group"
+      style={getContainerStyles()}
+    >
       <div
         className="flex transition-transform duration-500 ease-out h-full"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -56,11 +132,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             key={index}
             src={image}
             alt={`${projectName} screenshot ${index + 1}`}
-            className="w-full h-full object-cover flex-shrink-0"
+            className={getImageClasses()}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src =
-                "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA3IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMTcgOS4yNCAxNC43NiA3IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
+                "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMzMzIi8+CjxwYXRoIGQ9Ik0xMiA5QzEzLjY1IDkgMTUgMTAuMzUgMTUgMTJDMTUgMTMuNjUgMTMuNjUgMTUgMTIgMTVDMTAuMzUgMTUgOSAxMy42NSA5IDEyQzkgMTAuMzUgMTAuMzUgOSAxMiA5Wk0xMiA3QzkuMjQgNyA3IDkuMjQgNyAxMkM3IDE0Ljc2IDkuMjQgMTcgMTIgMTdDMTQuNzYgMTcgMTcgMTQuNzYgMTcgMTJDMTcgOS4yNCAxNC43NiA7IDEyIDdaIiBmaWxsPSIjNjY2Ii8+Cjwvc3ZnPgo=";
             }}
           />
         ))}
