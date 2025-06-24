@@ -41,7 +41,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <div className="md:hidden">
         {/* Image Section - Mobile */}
         <div className="w-full h-48">
-          <ImageCarousel images={project.images} projectName={project.name} />
+          <ImageCarousel
+            images={project.images}
+            projectName={project.name}
+            imageOptions={project.imageOptions}
+          />
         </div>
 
         {/* Content Section - Mobile */}
