@@ -63,7 +63,7 @@ export const projects: Project[] = [
       // "Framer Motion",
     ],
     liveUrl: "https://amigosecretofacil.cortez.top",
-    gitUrl: "https://github.com/vicortez/amigo-secreto-facil",
+    // gitUrl: "https://github.com/vicortez/amigo-secreto-facil",
     category: "useful",
     featured: true,
   },
