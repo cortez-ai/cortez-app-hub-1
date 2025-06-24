@@ -31,25 +31,29 @@ export interface Project {
   technologies?: string[];
   liveUrl?: string;
   gitUrl?: string;
-  category: "useful" | "experimental" | "fun";
+  category?: "useful" | "experimental" | "fun";
   featured?: boolean;
   year?: number;
 }
 
 export const projects: Project[] = [
   {
-    name: "Easy Secret santa",
-    description: "Intuitive no-account secret santa app",
-    detailedDescription:
-      "A simple and intuitive app to organize your Secret Santa gift exchange, replacing paper-and-pen. No accounts or emails required - just add participants and draw names instantly. After the draw, the app generates unique secret links for each participant, ensuring only they know who they picked. Perfect for families, friends, coworkers, or any group looking for a hassle-free way to organize their gift exchange. \n Made with TODO™",
-    images: [
-      "src/assets/amigosecretofacil.cortez.top_sorteio.png",
-      "src/assets/task-manager-2.jpg",
-    ],
+    name: "Amigo Secreto Facil (Easy secret santa)",
+    description: "Intuitive no-account-needed secret santa app",
+    detailedDescription: `A simple and intuitive app to organize your Secret Santa gift exchange, replacing paper-and-pen. No accounts or emails required - just add participants and draw names instantly. After the draw, the app generates unique secret links for each participant.
+    <br/><br/>
+    Made as an exercise on the following:
+    <ul>
+    <li> - Using a project template</li>
+    <li> - Typescript, Nextjs/React and Tailwind CSS</li>
+    <li> - Vercel static site hosting</li>
+    <li> - Conventional commits standard</li>
+    <li> - No component libraries</li>
+    </ul>`,
+    images: ["src/assets/amigosecretofacil.cortez.top_sorteio.png"],
     imageOptions: {
-      fit: "contain",
+      // fit: "contain",
       position: "center",
-      aspectRatio: "16/9",
     },
     technologies: [
       // "React",
@@ -65,14 +69,16 @@ export const projects: Project[] = [
   },
   {
     name: "Spending tracker",
-    description: "TODO",
+    description: "Multiplatform app to track expenses. Made with Flutter.",
     detailedDescription:
       "Blablabla, there is also a web version: https://spendingtracker.cortez.top",
-    images: ["src/assets/spending_tracker.webp"],
+    images: [
+      "src/assets/spending_tracker.webp",
+      "src/assets/spending_tracker-2.webp",
+    ],
     imageOptions: {
-      fit: "cover",
+      fit: "contain",
       position: "top",
-      aspectRatio: "auto",
     },
     // technologies: [
     //   "React",
@@ -88,23 +94,81 @@ export const projects: Project[] = [
     year: 2024,
   },
   {
-    name: "AI Color Palette Generator",
+    name: "Calculadora de distância para TV (Screen distance calculator)",
     description:
-      "Generate beautiful color palettes using machine learning algorithms.",
+      "A website that calculates the ideal distance between your sofa and screen",
+    // detailedDescription: "",
+    images: ["src/assets/distanciatv.cortez.top.png"],
+    // imageOptions: {
+    //   fit: "cover",
+    //   position: "center",
+    //   aspectRatio: "4/3",
+    // },
+    // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
+    liveUrl: "https://distanciatv.cortez.top/",
+    // gitUrl: "",
+    // category: "experimental",
+    // featured: false,
+    // year: 2023,
+  },
+  {
+    name: "Auto Escolhedor (Auto chooser)",
+    description:
+      "Simple app where you itemize choices and ask the app to choose for you",
+    detailedDescription: `Simple utility app to draw a random choice for you.
+    <br/><br/>
+    Made as an exercise on the following:
+    <ul>
+    <li> - Speedrunning app creation</li>
+    </ul>`,
+    images: ["src/assets/autoescolhedor.cortez.top_.png"],
+    // imageOptions: {
+    //   fit: "cover",
+    //   position: "center",
+    //   aspectRatio: "4/3",
+    // },
+    // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
+    liveUrl: "https://autoescolhedor.cortez.top/",
+    // gitUrl: "",
+    // category: "experimental",
+    // featured: false,
+    // year: 2023,
+  },
+  {
+    name: "My beers / Brew view",
+    description: "An app for tracking and rating brews you've had",
     detailedDescription:
-      "An experimental tool that uses AI to generate harmonious color palettes based on mood, keywords, or uploaded images. Features include palette export in various formats (CSS, SCSS, Adobe), color accessibility checking, and palette history.",
-    images: ["src/assets/color-palette-1.jpg"],
+      "Originally made to exercise oauth2 authentication, Heroku hosting and CDN-based media storage with Cloudinary. Later remade using the lovable AI app maker and builder.io to test AI code generation tech",
+    images: ["src/assets/brew-view.lovable.app_.png"],
+    // imageOptions: {
+    //   fit: "cover",
+    //   position: "center",
+    //   aspectRatio: "4/3",
+    // },
+    // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
+    liveUrl: "http://brewview.cortez.top/",
+    // gitUrl: "",
+    // category: "experimental",
+    // featured: false,
+    // year: 2023,
+  },
+  {
+    name: "HomeApp V2",
+    description:
+      "Small demo app to store notices, shopping list and food recipes for a home",
+    detailedDescription: "",
+    images: ["src/assets/homeapp-v2-example2.jpg"],
     imageOptions: {
-      fit: "cover",
-      position: "center",
+      fit: "contain",
+      position: "top",
       aspectRatio: "4/3",
     },
-    technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
-    liveUrl: "https://colorgen.example.com",
-    gitUrl: "https://github.com/username/color-generator",
-    category: "experimental",
-    featured: false,
-    year: 2023,
+    // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
+    // liveUrl: "https://autoescolhedor.cortez.top/",
+    // gitUrl: "",
+    // category: "experimental",
+    // featured: false,
+    // year: 2023,
   },
 ];
 

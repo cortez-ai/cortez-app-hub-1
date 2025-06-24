@@ -1,5 +1,5 @@
 import { projects } from "@/assets/projects";
-import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import React, { useMemo, useState } from "react";
 
@@ -20,7 +20,7 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        <Header onSortToggle={handleSortToggle} isAscending={isAscending} />
+        <Hero onSortToggle={handleSortToggle} isAscending={isAscending} />
 
         <main className="w-full max-w-5xl mx-auto">
           {/* Projects Grid */}
@@ -33,7 +33,10 @@ const Index: React.FC = () => {
           {/* Footer */}
           <footer className="mt-16 pt-8 border-t border-border text-center">
             <p className="text-muted-foreground text-sm">
-              Built with React and TypeScript
+              Built with React and TypeScript by{" "}
+              <span className="underline">
+                <a href="https://github.com/vicortez">Victor Cortez</a>
+              </span>
             </p>
           </footer>
         </main>

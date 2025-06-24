@@ -31,14 +31,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
   return (
     <article
-      className={`portfolio-card animate-slide-up group cursor-pointer transition-all duration-300 ${
-        isExpanded ? "h-auto" : "md:h-56 h-auto"
-      }`}
+      className={`portfolio-card animate-slide-up group transition-all duration-300 
+        ${isExpanded ? "h-auto" : "md:h-56 h-auto"}`}
       style={{ animationDelay: `${index * 100}ms` }}
-      onClick={handleCardClick}
     >
       {/* Mobile Layout - Vertical Stack */}
-      <div className="md:hidden">
+      <div
+        className={`md:hidden  
+        ${
+          project.liveUrl
+            ? "hover:border-gray-700 cursor-pointer"
+            : "cursor-default"
+        }`}
+        onClick={handleCardClick}
+      >
         {/* Image Section - Mobile */}
         <div className="w-full h-48">
           <ImageCarousel
@@ -51,9 +57,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Content Section - Mobile */}
         <div className="p-4">
           <div className="mb-4">
-            <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-              {project.name}
-            </h3>
+            <div className="mb-2">
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                {project.name}
+              </h3>
+              {!project.liveUrl && (
+                <span className="text-xs text-gray-500 italic">
+                  Not currently deployed
+                </span>
+              )}
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {project.description}
             </p>
@@ -85,7 +98,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       </div>
 
       {/* Desktop Layout - Horizontal */}
-      <div className="hidden md:flex h-56">
+      <div
+        className={`hidden md:flex h-56 ${
+          project.liveUrl
+            ? "hover:border-gray-700 cursor-pointer"
+            : "cursor-default"
+        }`}
+        onClick={handleCardClick}
+      >
         {/* Image Section - Desktop */}
         <div className="w-80 flex-shrink-0">
           <ImageCarousel
@@ -98,9 +118,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Content Section - Desktop */}
         <div className="flex-1 p-4 flex flex-col justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-200">
-              {project.name}
-            </h3>
+            <div className="mb-2">
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+                {project.name}
+              </h3>
+              {!project.liveUrl && (
+                <span className="text-xs text-gray-500 italic">
+                  Not currently deployed
+                </span>
+              )}
+            </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {project.description}
             </p>
@@ -134,8 +161,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Expanded Content */}
       {isExpanded && (
         <div className="border-t border-border p-4 animate-fade-in">
-          <p className="text-foreground leading-relaxed">
-            {project.detailedDescription}
+          <p
+            className="text-foreground leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: project.detailedDescription || `No detailed description`,
+            }}
+          >
+            {}
           </p>
         </div>
       )}
