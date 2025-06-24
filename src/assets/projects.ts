@@ -146,7 +146,7 @@ export const projects: Project[] = [
     //   aspectRatio: "4/3",
     // },
     // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
-    liveUrl: "http://brewview.cortez.top/",
+    liveUrl: "https://brewview.cortez.top/",
     // gitUrl: "",
     // category: "experimental",
     // featured: false,
@@ -190,7 +190,7 @@ export const sortProjects = (
       case "name":
         return a.name.localeCompare(b.name);
       case "year":
-        return b.year - a.year;
+        return (b.year || 0) - (a.year || 0);
       case "category":
         return a.category.localeCompare(b.category);
       default:
