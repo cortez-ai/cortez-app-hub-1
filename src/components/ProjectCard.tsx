@@ -88,7 +88,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <div className="hidden md:flex h-56">
         {/* Image Section - Desktop */}
         <div className="w-80 flex-shrink-0">
-          <ImageCarousel images={project.images} projectName={project.name} />
+          <ImageCarousel
+            images={project.images}
+            projectName={project.name}
+            imageOptions={project.imageOptions}
+          />
         </div>
 
         {/* Content Section - Desktop */}
