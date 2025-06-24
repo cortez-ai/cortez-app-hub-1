@@ -50,7 +50,7 @@ export const projects: Project[] = [
     <li> - Conventional commits standard</li>
     <li> - No component libraries</li>
     </ul>`,
-    images: ["src/assets/amigosecretofacil.cortez.top_sorteio.png"],
+    images: ["/images/amigosecretofacil.cortez.top_sorteio.png"],
     imageOptions: {
       // fit: "contain",
       position: "center",
@@ -73,8 +73,8 @@ export const projects: Project[] = [
     detailedDescription:
       "Blablabla, there is also a web version: https://spendingtracker.cortez.top",
     images: [
-      "src/assets/spending_tracker.webp",
-      "src/assets/spending_tracker-2.webp",
+      "/images/spending_tracker.webp",
+      "/images/spending_tracker-2.webp",
     ],
     imageOptions: {
       fit: "contain",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     description:
       "A website that calculates the ideal distance between your sofa and screen",
     // detailedDescription: "",
-    images: ["src/assets/distanciatv.cortez.top.png"],
+    images: ["/images/distanciatv.cortez.top.png"],
     // imageOptions: {
     //   fit: "cover",
     //   position: "center",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     <ul>
     <li> - Speedrunning app creation</li>
     </ul>`,
-    images: ["src/assets/autoescolhedor.cortez.top_.png"],
+    images: ["/images/autoescolhedor.cortez.top_.png"],
     // imageOptions: {
     //   fit: "cover",
     //   position: "center",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     description: "An app for tracking and rating brews you've had",
     detailedDescription:
       "Originally made to exercise oauth2 authentication, Heroku hosting and CDN-based media storage with Cloudinary. Later remade using the lovable AI app maker and builder.io to test AI code generation tech",
-    images: ["src/assets/brew-view.lovable.app_.png"],
+    images: ["/images/brew-view.lovable.app_.png"],
     // imageOptions: {
     //   fit: "cover",
     //   position: "center",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     description:
       "Small demo app to store notices, shopping list and food recipes for a home",
     detailedDescription: "",
-    images: ["src/assets/homeapp-v2-example2.jpg"],
+    images: ["/images/homeapp-v2-example2.jpg"],
     imageOptions: {
       fit: "contain",
       position: "top",
