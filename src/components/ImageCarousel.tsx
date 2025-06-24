@@ -11,8 +11,76 @@ interface ImageCarouselProps {
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
   images,
   projectName,
+  imageOptions = {},
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Helper function to convert imageOptions to CSS classes
+  const getImageClasses = () => {
+    const { fit = "cover", position = "center" } = imageOptions;
+
+    let classes =
+      "w-full h-full flex-shrink-0 transition-transform duration-300 hover:scale-105";
+
+    // Object-fit classes
+    switch (fit) {
+      case "contain":
+        classes += " object-contain";
+        break;
+      case "fill":
+        classes += " object-fill";
+        break;
+      case "scale-down":
+        classes += " object-scale-down";
+        break;
+      case "none":
+        classes += " object-none";
+        break;
+      default:
+        classes += " object-cover";
+    }
+
+    // Object-position classes
+    switch (position) {
+      case "top":
+        classes += " object-top";
+        break;
+      case "bottom":
+        classes += " object-bottom";
+        break;
+      case "left":
+        classes += " object-left";
+        break;
+      case "right":
+        classes += " object-right";
+        break;
+      case "top-left":
+        classes += " object-left-top";
+        break;
+      case "top-right":
+        classes += " object-right-top";
+        break;
+      case "bottom-left":
+        classes += " object-left-bottom";
+        break;
+      case "bottom-right":
+        classes += " object-right-bottom";
+        break;
+      default:
+        classes += " object-center";
+    }
+
+    return classes;
+  };
+
+  // Helper function to get container styles
+  const getContainerStyles = () => {
+    const { aspectRatio } = imageOptions;
+    if (aspectRatio && aspectRatio !== "auto") {
+      return { aspectRatio };
+    }
+    return {};
+  };
 
   if (images.length === 0) {
     return (
