@@ -1,46 +1,10 @@
-export type ImageFit =
-  | "cover" // Default - fills container, may crop
-  | "contain" // Fits entire image within container
-  | "fill" // Stretches to fill container
-  | "scale-down" // Like contain but won't scale up
-  | "none"; // Original size
-
-export type ImagePosition =
-  | "center" // center center
-  | "top" // center top
-  | "bottom" // center bottom
-  | "left" // left center
-  | "right" // right center
-  | "top-left" // left top
-  | "top-right" // right top
-  | "bottom-left" // left bottom
-  | "bottom-right"; // right bottom
-
-export interface ImageOptions {
-  fit?: ImageFit;
-  position?: ImagePosition;
-  aspectRatio?: "16/9" | "4/3" | "1/1" | "3/2" | "auto";
-}
-
-export interface Project {
-  name: string;
-  description: string;
-  detailedDescription?: string;
-  images: string[];
-  imageOptions?: ImageOptions;
-  technologies?: string[];
-  liveUrl?: string;
-  gitUrl?: string;
-  category?: "useful" | "experimental" | "fun";
-  featured?: boolean;
-  year?: number;
-}
+import { Project } from "@/models/models";
 
 export const projects: Project[] = [
   {
-    name: "Amigo Secreto Facil (Easy secret santa)",
+    name: "Easy secret santa (Amigo Secreto Facil)",
     description: "Intuitive no-account-needed secret santa app",
-    detailedDescription: `A simple and intuitive app to organize your Secret Santa gift exchange, replacing paper-and-pen. No accounts or emails required - just add participants and draw names instantly. After the draw, the app generates unique secret links for each participant.
+    detailedDescription: `A simple and intuitive app to organize your Secret Santa gift exchange, replacing pen and paper with a skeuomorphic interface. No accounts or emails required - just add participants and draw names instantly. After the draw, the app generates unique secret links for each participant.
     <br/><br/>
     Made as an exercise on the following:
     <ul>
@@ -50,7 +14,7 @@ export const projects: Project[] = [
     <li> - Conventional commits standard</li>
     <li> - No component libraries</li>
     </ul>`,
-    images: ["/images/amigosecretofacil.cortez.top_sorteio.png"],
+    images: ["/images/amigosecretofacil_sorteio.png"],
     imageOptions: {
       // fit: "contain",
       position: "center",
@@ -71,7 +35,7 @@ export const projects: Project[] = [
     name: "Spending tracker",
     description: "Multiplatform app to track expenses. Made with Flutter.",
     detailedDescription:
-      "Blablabla, there is also a web version: https://spendingtracker.cortez.top",
+      "App to quickly track expenses, which I use daily. Released on Google Play Store, and there is also a web version at <a href='https://spendingtracker.cortez.top' target='_blank' rel='noopener noreferrer'>https://spendingtracker.cortez.top</a>",
     images: [
       "/images/spending_tracker.webp",
       "/images/spending_tracker-2.webp",
@@ -94,7 +58,7 @@ export const projects: Project[] = [
     // year: 2024,
   },
   {
-    name: "Calculadora de distância para TV (Screen distance calculator)",
+    name: "Screen distance calculator (Calculadora de distância para TV)",
     description:
       "A website that calculates the ideal distance between your sofa and screen",
     // detailedDescription: "",
@@ -112,7 +76,7 @@ export const projects: Project[] = [
     // year: 2023,
   },
   {
-    name: "Auto Escolhedor (Auto chooser)",
+    name: "Auto chooser (Auto Escolhedor)",
     description:
       "Simple app where you itemize choices and ask the app to choose for you",
     detailedDescription: `Simple utility app to draw a random choice for you.
@@ -164,11 +128,60 @@ export const projects: Project[] = [
       aspectRatio: "4/3",
     },
     // technologies: ["Python", "TensorFlow", "React", "Color Theory", "APIs"],
-    // liveUrl: "https://autoescolhedor.cortez.top/",
     gitUrl: "https://gitlab.com/ctovictor/homeapp-v2",
     // category: "experimental",
     // featured: false,
     // year: 2023,
+  },
+  {
+    name: "Jobs AI filter",
+    description:
+      "Simple app I created to help me bulk analyze and find job listings that interest me",
+    detailedDescription: `
+    Simple utility app to filter job offers. I used the POE API, which is identical to the openai API, because I have a POE subscription.
+    <br/><br/>
+    The user can set their own API key, and configure their likes and dislikes so that the AI can automatically filter the job offers.
+    <br/><br/>
+    The app generates a detailed report explaining each offer kept and why others were discarded
+    `,
+    images: ["/images/jobfilter.cortez.top.png"],
+    liveUrl: "https://jobfilter.cortez.top/",
+    gitUrl: "https://github.com/cortez-ai/jobs-ai-filter",
+  },
+  {
+    name: "Installments real cost calculator",
+    description:
+      'This app helps you find the "real" cost of purchasing in installments, considering you could be investing the rest of the money in a savings account as you pay it off',
+    detailedDescription: undefined,
+    images: ["/images/installmentrealcostcalculator.cortez.top.png"],
+    liveUrl: "https://installmentrealcostcalculator.netlify.app/",
+    gitUrl: undefined,
+  },
+  {
+    name: "R factor calculator (comparador de fator R)",
+    description:
+      "Created for brazillian enterpreneurs. A handy graph to compare expected liquid profits across 2 different tax regimes as gross monthly revenue scales",
+    detailedDescription: undefined,
+    images: ["/images/comparar-fator-r.cortez.top.png"],
+    liveUrl: "https://comparar-fator-r.netlify.app/",
+    gitUrl: undefined,
+  },
+  {
+    name: "Footvolley championship elo tracker",
+    description: "Simple app to track the elo score of players across matches",
+    detailedDescription: undefined,
+    images: ["/images/futevolei-cortez.png"],
+    liveUrl: "https://futevolei-cortez.netlify.app/",
+    gitUrl: undefined,
+  },
+  {
+    name: "Tech demo: Floating cards",
+    description:
+      "A tech demo for a highly interactive floating card effect using TailwindCSS",
+    detailedDescription: undefined,
+    images: ["/images/floating-cards.png"],
+    liveUrl: "https://floating-cards.netlify.app/",
+    gitUrl: undefined,
   },
 ];
 

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageOptions } from "@/assets/projects";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState } from "react";
 
 interface ImageCarouselProps {
   images: string[];
@@ -93,7 +93,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   if (images.length === 1) {
     return (
       <div
-        className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted"
+        className="relative w-full h-full overflow-hidden rounded-lg bg-muted"
         style={getContainerStyles()}
       >
         <img
@@ -120,7 +120,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
   return (
     <div
-      className="relative w-full h-full overflow-hidden rounded-l-lg bg-muted group"
+      className="relative w-full h-full overflow-hidden rounded-lg bg-muted group"
       style={getContainerStyles()}
     >
       <div

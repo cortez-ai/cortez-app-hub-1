@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* div {
+  border: 1px dashed white;
+} */
+
+.details-container a {
+  @apply text-primary hover:text-primary/80;
+}
+
 @layer base {
   :root {
     /* Dark theme base colors - pure black/gray */
