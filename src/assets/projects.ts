@@ -183,6 +183,24 @@ export const projects: Project[] = [
     liveUrl: "https://floating-cards.netlify.app/",
     gitUrl: undefined,
   },
+  {
+    name: "ZapOpen",
+    description:
+      "WhatsApp chat opener. Open a WhatsApp chat from a phone number without adding them to contacts.",
+    detailedDescription: undefined,
+    images: ["/images/zapopen.png"],
+    liveUrl: "https://zapopen.netlify.app/",
+    gitUrl: undefined,
+  },
+  {
+    name: "Quick photo edit",
+    description:
+      "This web app allows you to quickly edit your pictures to perform some useful and common operations.",
+    detailedDescription: undefined,
+    images: ["/images/quickphotoedit.png"],
+    liveUrl: "https://quickphotoedit.netlify.app/",
+    gitUrl: undefined,
+  },
 ];
 
 export const getProjectsByCategory = (category?: Project["category"]) => {
